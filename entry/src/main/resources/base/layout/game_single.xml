@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:width="match_parent"
+    ohos:height="match_parent"
+    ohos:background_element="$media:bg"
+    ohos:orientation="vertical">
+
+    <com.txxia.fivechess.game.GameComponent
+        ohos:id="$+id:game_view"
+        ohos:width="match_parent"
+        ohos:height="1020px"
+        ohos:left_margin="10vp"
+        ohos:top_margin="10vp"
+        ohos:right_margin="10vp"
+        ohos:center_in_parent="true"
+        ohos:background_element="#FECB40"/>
+
+    <!-- Score area -->
+    <DirectionalLayout
+        ohos:width="match_parent"
+        ohos:height="match_content"
+        ohos:orientation="horizontal"
+        ohos:alignment="vertical_center"
+        ohos:left_padding="20vp"
+        ohos:right_padding="20vp"
+        ohos:above="$id:game_view">
+
+        <DirectionalLayout
+            ohos:width="0"
+            ohos:height="match_content"
+            ohos:weight="1"
+            ohos:alignment="vertical_center"
+            ohos:orientation="horizontal" >
+
+            <Image
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:image_src="$media:black_large" />
+
+            <Text
+                ohos:id="$+id:black_name"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:text="自己"
+                ohos:text_color="#000000"
+                ohos:text_size="16fp" />
+
+            <Image
+                ohos:id="$+id:black_active"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:image_src="$media:black_active" />
+
+            <Text
+                ohos:id="$+id:black_win"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:text_color="#000000"
+                ohos:text_size="16fp" />
+
+        </DirectionalLayout>
+
+        <DirectionalLayout
+            ohos:width="0vp"
+            ohos:height="match_content"
+            ohos:orientation="horizontal"
+            ohos:alignment="vertical_center"
+            ohos:weight="1">
+
+            <Image ohos:id="$+id:white_chess"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:image_src="$media:white_large" />
+
+            <Text
+                ohos:id="$+id:white_name"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:text="电脑"
+                ohos:text_color="#000000"
+                ohos:text_size="16fp" />
+
+            <Image
+                ohos:id="$+id:white_active"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:image_src="$media:white_active" />
+
+            <Text
+                ohos:id="$+id:white_win"
+                ohos:width="match_content"
+                ohos:height="match_content"
+                ohos:text_color="#000000"
+                ohos:text_size="16fp" />
+
+        </DirectionalLayout>
+    </DirectionalLayout>
+
+    <!-- Control Button -->
+    <DirectionalLayout
+        ohos:width="match_parent"
+        ohos:height="40vp"
+        ohos:top_margin="20vp"
+        ohos:left_margin="20vp"
+        ohos:right_margin="20vp"
+        ohos:below="$id:game_view"
+        ohos:orientation="horizontal"
+        >
+
+        <Button
+            ohos:id="$+id:restart"
+            ohos:width="0vp"
+            ohos:height="match_parent"
+            ohos:weight="1"
+            ohos:background_element="$graphic:btn_blue"
+            ohos:text="重玩"
+            ohos:text_color="#ffffff"
+            ohos:text_size="20fp"/>
+
+        <Button ohos:id="$+id:rollback"
+            ohos:width="0vp"
+            ohos:height="match_parent"
+            ohos:weight="1"
+            ohos:left_margin="20vp"
+            ohos:background_element="$graphic:btn_blue"
+            ohos:text="悔棋"
+            ohos:text_color="#ffffff"
+            ohos:text_size="20fp"/>
+
+        <Button ohos:id="$+id:exit"
+                ohos:width="0vp"
+                ohos:height="match_parent"
+                ohos:weight="1"
+                ohos:left_margin="20vp"
+                ohos:background_element="$graphic:btn_blue"
+                ohos:text="退出"
+                ohos:text_color="#ffffff"
+                ohos:text_size="20fp"/>
+    </DirectionalLayout>
+    
+</DependentLayout>

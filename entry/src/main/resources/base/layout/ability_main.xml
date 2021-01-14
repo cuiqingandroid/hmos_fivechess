@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DependentLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_parent"
+    ohos:width="match_parent"
+    ohos:background_element="$media:main_bg"
+    ohos:orientation="vertical">
+
+    <DirectionalLayout
+        ohos:width="150vp"
+        ohos:height="match_content"
+        ohos:center_in_parent="true"
+        ohos:orientation="vertical">
+
+        <Button
+            ohos:id="$+id:btnStartSingleGame"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:background_element="$graphic:btn"
+            ohos:bottom_padding="5vp"
+            ohos:left_padding="20vp"
+            ohos:right_padding="20vp"
+            ohos:text="$string:ai_title"
+            ohos:text_color="$color:white"
+            ohos:text_size="50"
+            ohos:top_padding="5vp"
+            />
+
+        <Button
+            ohos:id="$+id:btnAbout"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:background_element="$graphic:btn"
+            ohos:bottom_padding="5vp"
+            ohos:left_padding="20vp"
+            ohos:right_padding="20vp"
+            ohos:top_margin="15vp"
+            ohos:text="$string:about"
+            ohos:text_color="$color:white"
+            ohos:text_size="50"
+            ohos:top_padding="5vp"
+            />
+
+        <Button
+            ohos:id="$+id:btnExit"
+            ohos:width="match_parent"
+            ohos:height="match_content"
+            ohos:background_element="$graphic:btn"
+            ohos:bottom_padding="5vp"
+            ohos:top_padding="5vp"
+            ohos:left_padding="20vp"
+            ohos:right_padding="20vp"
+            ohos:top_margin="15vp"
+            ohos:text="$string:exit"
+            ohos:text_color="$color:white"
+            ohos:text_size="50"
+            />
+    </DirectionalLayout>
+
+
+</DependentLayout>

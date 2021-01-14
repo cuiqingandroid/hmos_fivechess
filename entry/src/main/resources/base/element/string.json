@@ -1,0 +1,48 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "智能五子棋"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "ai_title",
+      "value": "人机对战"
+    },
+    {
+      "name": "exit",
+      "value": "退出"
+    },
+    {
+      "name": "about",
+      "value": "关于"
+    },
+    {
+      "name": "version_prefix",
+      "value": "版本：V1.0"
+    },
+    {
+      "name": "author",
+      "value": "作者：cuiqing"
+    },
+    {
+      "name": "organization",
+      "value": "公司：豌豆公主"
+    },
+    {
+      "name": "project_prefix",
+      "value": "项目地址:"
+    },
+    {
+      "name": "project_url",
+      "value": "https://github.com/cuiqingandroid/hmos_fivechess"
+    },
+    {
+      "name": "back",
+      "value": "返回"
+    }
+  ]
+}
