@@ -5,6 +5,15 @@
 
 [官方论坛](https://developer.huawei.com/consumer/cn/forum/blockdisplay?fid=0101303901040230869)
 
+## 应用包名
+`com.txxia.fivechess`
+
+## 真机调试
+1. [参考官网](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/debug_overview-0000001053822404)配置好
+2. 添加应用时包名填`com.txxia.fivechess`
+3. 修改`entry`中的`build.gradle`里的`signingConfigs`为你自己的证书
+
+
 ## 涉及知识点
 - 自定义view
 - canvas画布
