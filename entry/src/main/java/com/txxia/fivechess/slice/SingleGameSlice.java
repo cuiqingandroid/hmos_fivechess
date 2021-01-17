@@ -56,10 +56,10 @@ public class SingleGameSlice extends AbilitySlice {
             switch (event.eventId) {
                 case GameConstants.GAME_OVER:
                     if ((int)event.object == Game.BLACK){
-                        showWinDialog("黑方胜！");
+                        showWinDialog("你赢了！");
                         me.win();
                     } else if ((int)event.object == Game.WHITE) {
-                        showWinDialog("白方胜！");
+                        showWinDialog("你输给了电脑！");
                         computer.win();
                     }
                     updateScore(me, computer);
