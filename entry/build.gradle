@@ -1,16 +1,16 @@
 apply plugin: 'com.huawei.ohos.hap'
 ohos {
-    signingConfigs {
-        debug {
-            storeFile file('D:/hmos/cuiqing.p12')
-            storePassword '0000001A473A61C8F707FE2B9885D621AD2AF0BA8611978146E0656F8249F5D6A817A93679B988A060F1'
-            keyAlias 'cuiqing'
-            keyPassword '0000001A6F8CCCBCD45A1F6261DAB3F8A15CC5E281D3498C5709A3DA2CF8C24A47FC2CA147FA4DBE0BDE'
-            signAlg 'SHA256withECDSA'
-            profile file('D:/hmos/五子棋Debug.p7b')
-            certpath file('D:/hmos/cuiqing.cer')
-        }
-    }
+//    signingConfigs {
+//        release {
+//            storeFile file('D:/hmos/cuiqing.p12')
+//            storePassword '0000001A473A61C8F707FE2B9885D621AD2AF0BA8611978146E0656F8249F5D6A817A93679B988A060F1'
+//            keyAlias 'cuiqing'
+//            keyPassword '0000001A6F8CCCBCD45A1F6261DAB3F8A15CC5E281D3498C5709A3DA2CF8C24A47FC2CA147FA4DBE0BDE'
+//            signAlg 'SHA256withECDSA'
+//            profile file('D:/hmos/五子棋Debug.p7b')
+//            certpath file('D:/hmos/cuiqing.cer')
+//        }
+//    }
     compileSdkVersion 4
     defaultConfig {
         compatibleSdkVersion 3

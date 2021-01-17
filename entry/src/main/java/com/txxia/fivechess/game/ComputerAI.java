@@ -2,49 +2,34 @@ package com.txxia.fivechess.game;
 
 public class ComputerAI {
 
-    public static final int HOR = 1;
-    public static final int VER = 2;
-    public static final int HOR_VER = 3;
-    public static final int VER_HOR = 4;
-    
-//    private static final int FIVE = 100; // 活五
-//    private static final int L_FOUR = 90; // 活四
-//    private static final int D_FOUR = 100; // 死四
-    
-    private int mWidth = 0;
-    private int mHeight = 0;
+    private static int BLACK = 1;
+    private static int WHITE = 2;
+
+    private int mWidth;
+    private int mHeight;
     
     // Black chess priority value array
-    int[][][] black = null;
+    private int[][][] black;
     // white chess priority value array
-    int[][][] white = null;
+    private int[][][] white;
     
-    // the value of position which has different performance
     // 五子棋中的各个点的权值
-    int[][] plaValue = {{2,6,173,212,250,250,250},{0,5,7,200,230,231,231},
-                        {0,0,0,0,230,230,230,0}};
-    int[][] cpuValue = {{0,3,166,186,229,229,229},{0,0,5,167,220,220,220},
-                        {0,0,0,0,220,220,220,0}};
-    
+    private int[][] plaValue = {
+            {2,6,173,212,250,250,250},
+            {0,5,7,200,230,231,231},
+            {0,0,0,0,230,230,230,0}
+    };
+    private int[][] cpuValue = {
+            {0,3,166,186,229,229,229},
+            {0,0,5,167,220,220,220},
+            {0,0,0,0,220,220,220,0}
+    };
+
     public ComputerAI(int width, int height) {
         mWidth = width;
         mHeight = height;
         black = new int[width][height][5];
         white = new int[width][height][5];
-//        for(int i = 0 ; i < width ; i++){
-//            for(int j = 0; j < height; j++){
-//                black[i][j] = new Chess();
-//                white[i][j] = new Chess();
-//            }
-//        }
-    }
-    
-    /**
-     * 更新棋盘权值
-     * @param game
-     */
-    public void updateValue(Game game){
-        int[][] map = game.getChessMap();
     }
     
     /**
@@ -67,11 +52,11 @@ public class ComputerAI {
                     for(int k = j + 1; k < mHeight; k ++)
                     {
                             
-                        if(map[i][k] == Game.BLACK)
+                        if(map[i][k] == BLACK)
                             computerValue[0] ++;
                         if(map[i][k] == 0)
                             break;
-                        if(map[i][k] == Game.WHITE)
+                        if(map[i][k] == WHITE)
                         {
                             counter ++;
                             break;
@@ -83,11 +68,11 @@ public class ComputerAI {
                     for(int k = j - 1; k >= 0; k --)
                     {
                             
-                        if(map[i][k] == Game.BLACK)
+                        if(map[i][k] == BLACK)
                             computerValue[0] ++;
                         if(map[i][k] == 0)
                             break;
-                        if(map[i][k] == Game.WHITE)
+                        if(map[i][k] == WHITE)
                         {
                             counter ++;
                             break;
@@ -108,11 +93,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                             computerValue[1] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                         {
                             counter ++;
                             break;
@@ -130,11 +115,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                             computerValue[1] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                         {
                             counter ++;
                             break;
@@ -154,11 +139,11 @@ public class ComputerAI {
                     for(int k = i + 1; k < mWidth; k ++)
                     {
                     
-                        if(map[k][j] == Game.BLACK)
+                        if(map[k][j] == BLACK)
                             computerValue[2] ++;
                         if(map[k][j] == 0)
                             break;
-                        if(map[k][j] == Game.WHITE)
+                        if(map[k][j] == WHITE)
                         {
                             counter ++;
                             break;
@@ -171,11 +156,11 @@ public class ComputerAI {
                     for(int k = i - 1; k >= 0; k --)
                     {
                         
-                        if(map[k][j] == Game.BLACK)
+                        if(map[k][j] == BLACK)
                             computerValue[2] ++;
                         if(map[k][j] == 0)
                             break;
-                        if(map[k][j] == Game.WHITE)
+                        if(map[k][j] == WHITE)
                         {
                             counter ++;
                             break;
@@ -198,11 +183,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                             computerValue[3] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                         {
                             counter ++;
                             break;
@@ -220,11 +205,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                             computerValue[3] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                         {
                             counter ++;
                             break;
@@ -247,9 +232,7 @@ public class ComputerAI {
                     }
                     if(counter >= 2 && white[i][j][4] < 175)
                         white[i][j][4] = 175;
-                    counter = 0;
-                    
-                    
+
                     for(int k = 0; k < 4; k ++)
                     {
                         for(int l = 0; l < 4; l ++)
@@ -543,11 +526,11 @@ public class ComputerAI {
                     for(int k = j + 1; k < mHeight; k ++)
                     {
                             
-                        if(map[i][k] == Game.WHITE)
+                        if(map[i][k] == WHITE)
                             playerValue[0] ++;
                         if(map[i][k] == 0)
                             break;
-                        if(map[i][k] == Game.BLACK)
+                        if(map[i][k] == BLACK)
                         {
                             counter ++;
                             break;
@@ -560,11 +543,11 @@ public class ComputerAI {
                     for(int k = j - 1; k >= 0; k --)
                     {
                             
-                        if(map[i][k] == Game.WHITE)
+                        if(map[i][k] == WHITE)
                             playerValue[0] ++;
                         if(map[i][k] == 0)
                             break;
-                        if(map[i][k] == Game.BLACK)
+                        if(map[i][k] == BLACK)
                         {
                             counter ++;
                             break;
@@ -584,11 +567,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                             playerValue[1] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                         {
                             counter ++;
                             break;
@@ -606,11 +589,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                             playerValue[1] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                         {
                             counter ++;
                             break;
@@ -628,11 +611,11 @@ public class ComputerAI {
                     for(int k = i + 1; k < mWidth; k ++)
                     {
                     
-                        if(map[k][j] == Game.WHITE)
+                        if(map[k][j] == WHITE)
                             playerValue[2] ++;
                         if(map[k][j] == 0)
                             break;
-                        if(map[k][j] == Game.BLACK)
+                        if(map[k][j] == BLACK)
                         {
                             counter ++;
                             break;
@@ -645,11 +628,11 @@ public class ComputerAI {
                     for(int k = i - 1; k >= 0; k --)
                     {
                         
-                        if(map[k][j] == Game.WHITE)
+                        if(map[k][j] == WHITE)
                             playerValue[2] ++;
                         if(map[k][j] == 0)
                             break;
-                        if(map[k][j] == Game.BLACK)
+                        if(map[k][j] == BLACK)
                         {
                             counter ++;
                             break;
@@ -670,11 +653,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                             playerValue[3] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                         {
                             counter ++;
                             break;
@@ -692,11 +675,11 @@ public class ComputerAI {
                         {
                             break;
                         }
-                        if(map[k][l] == Game.WHITE)
+                        if(map[k][l] == WHITE)
                             playerValue[3] ++;
                         if(map[k][l] == 0)
                             break;
-                        if(map[k][l] == Game.BLACK)
+                        if(map[k][l] == BLACK)
                         {
                             counter ++;
                             break;
@@ -937,7 +920,7 @@ public class ComputerAI {
         }
     }
     
-    public Coordinate getPosition(int[][] map)
+    public Coordinate getNextCoordinate(int[][] map)
     {
         int maxpSum = 0;
         int maxcSum = 0;

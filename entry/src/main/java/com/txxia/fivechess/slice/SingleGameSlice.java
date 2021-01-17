@@ -2,12 +2,10 @@ package com.txxia.fivechess.slice;
 
 import com.txxia.fivechess.ResourceTable;
 import com.txxia.fivechess.game.*;
+import com.txxia.fivechess.util.UIUtil;
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
-import ohos.agp.components.Button;
-import ohos.agp.components.Component;
-import ohos.agp.components.Image;
-import ohos.agp.components.Text;
+import ohos.agp.components.*;
 import ohos.agp.window.dialog.CommonDialog;
 import ohos.agp.window.dialog.IDialog;
 import ohos.eventhandler.EventHandler;
@@ -156,11 +154,10 @@ public class SingleGameSlice extends AbilitySlice {
     }
 
     private void showWinDialog(String message){
-
         CommonDialog b = new CommonDialog(this);
+        b.setSize(UIUtil.getScreenWidth(this)*2/3, UIUtil.vp2px(this, 120));
         b.setContentText(message);
         b.setButton(1,"继续", new IDialog.ClickedListener() {
-
             @Override
             public void onClick(IDialog dialog, int var2) {
                 mGame.reset();
@@ -169,7 +166,6 @@ public class SingleGameSlice extends AbilitySlice {
             }
         });
         b.setButton(0,"退出", new IDialog.ClickedListener() {
-
             @Override
             public void onClick(IDialog dialog, int var2) {
                 terminateAbility();
@@ -194,7 +190,7 @@ public class SingleGameSlice extends AbilitySlice {
 
         protected void processEvent(InnerEvent event) {
             ai.updateValue(mGame.getChessMap());
-            Coordinate c = ai.getPosition(mGame.getChessMap());
+            Coordinate c = ai.getNextCoordinate(mGame.getChessMap());
             mGame.addChess(c, computer);
             mGameComponent.drawGame();
             if (isRollback){

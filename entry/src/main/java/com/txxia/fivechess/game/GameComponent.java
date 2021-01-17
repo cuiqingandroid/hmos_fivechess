@@ -31,7 +31,7 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
     private HiLogLabel hiLogLabel = new HiLogLabel(HiLog.LOG_APP, 0x00201, TAG);
 
     // 棋子画笔
-    private Paint chessPaint = new Paint();;
+    private Paint chessPaint = new Paint();
     // 棋盘画笔
     private Paint boardPaint = new Paint();
 
@@ -92,22 +92,10 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
                 int h = component.getHeight();
                 if (w !=h){
                     setComponentSize(w, w);
-
-//                    getComponentParent().removeComponent(component);
-//                    setWidth(ComponentContainer.LayoutConfig.MATCH_PARENT);
-//                    DependentLayout.LayoutConfig layoutConfig = new DependentLayout.LayoutConfig(w, w);
-//                    setLayoutConfig(layoutConfig);
-//                    setWidth(w);
-//                    setHeight(w);
                     postLayout();
-//                    invalidate();
-//                    getComponentParent().removeComponent(component);
-//                    ((DependentLayout)getComponentParent()).addComponent(component, layoutConfig);
-                    return;
+                    invalidate();
                 }
-
-
-
+                HiLog.info(hiLogLabel, "onComponentBoundToWindow w:%{public}d, h:%{public}d,thread:%{public}s", component.getWidth(), component.getHeight(), Thread.currentThread().getName());
             }
 
             @Override
@@ -139,8 +127,7 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
     }
 
     /**
-     * 设置游戏
-     * @param game
+     * 设置游戏对象
      */
     public void setGame(Game game){
         mGame = game;
@@ -190,9 +177,11 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
      * 绘制游戏界面
      */
     public void drawGame(Canvas  canvas){
+        long start = System.currentTimeMillis();
         drawChessBoard(canvas);
         drawChess(canvas);
         drawFocus(canvas);
+        HiLog.info(hiLogLabel, "draw cost: %{public}d ms", (System.currentTimeMillis()- start));
     }
 
     /**
@@ -200,7 +189,7 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
      * @param x 横坐标
      * @param y 纵坐标
      */
-    public void addChess(int x, int y){
+    private void addChess(int x, int y){
         if (mGame == null){
             return;
         }
@@ -272,7 +261,7 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
         }
         // 绘制锚点(中心点)
         int circleX = startX+mChessSize*(mChessboardWLen /2);
-        int circleY = startY+mChessSize*(mChessboardHLen /2);;
+        int circleY = startY+mChessSize*(mChessboardHLen /2);
         canvas.drawCircle(circleX, circleY, anchorWidth, boardPaint);
     }
 
@@ -302,8 +291,7 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
     }
 
     /**
-     * 画当前框
-     * @param canvas
+     * 画手指点击的位置框，辅助显示点击位置是否准确，如点错可滑动取消本次点击
      */
     private void drawFocus(Canvas canvas){
         if (isDrawFocus){
