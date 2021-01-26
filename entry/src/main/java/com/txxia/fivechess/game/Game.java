@@ -25,9 +25,9 @@ public class Game {
     
     // 默认黑子先出
     private int mActive = 1;
-    int mGameWidth = 0;
-    int mGameHeight = 0;
-    int[][] mGameMap = null;
+    int mGameWidth;
+    int mGameHeight;
+    int[][] mGameMap;
     Deque<Coordinate> mActions ;
     
     public static final int BLACK = 1;
@@ -46,7 +46,7 @@ public class Game {
         mGameWidth = width;
         mGameHeight = height;
         mGameMap = new int[mGameWidth][mGameHeight];
-        mActions = new LinkedList<Coordinate>();
+        mActions = new LinkedList<>();
     }
     
     public void setMode(int mode){
@@ -161,15 +161,7 @@ public class Game {
     public void addChess(Coordinate c, Player player){
         addChess(c.x, c.y, player);
     }
-    
-    public static int getFighter(int type){
-        if (type == BLACK){
-            return WHITE;
-        } else {
-            return BLACK;
-        }
-    }
-    
+
     /**
      * 返回当前落子方
      * @return mActive
@@ -185,7 +177,7 @@ public class Game {
     public int[][] getChessMap(){
         return mGameMap;
     }
-    
+
     /**
      * 获取棋盘历史
      * @return mActions

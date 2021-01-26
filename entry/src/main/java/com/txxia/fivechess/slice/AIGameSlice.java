@@ -14,7 +14,7 @@ import ohos.eventhandler.InnerEvent;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
 
-public class SingleGameSlice extends AbilitySlice {
+public class AIGameSlice extends AbilitySlice {
     private static final String TAG = "SingleGameSlice";
     private HiLogLabel hiLogLabel = new HiLogLabel(HiLog.LOG_APP, 0x00201, TAG);
     
@@ -160,7 +160,7 @@ public class SingleGameSlice extends AbilitySlice {
         b.setButton(1,"继续", new IDialog.ClickedListener() {
             @Override
             public void onClick(IDialog dialog, int var2) {
-                mGame.reset();
+                mGame.resetNet();
                 mGameComponent.invalidate();
                 dialog.destroy();
             }

@@ -91,8 +91,11 @@ public class GameComponent extends Component implements Component.DrawTask, Comp
                 int w = component.getWidth();
                 int h = component.getHeight();
                 if (w !=h){
-                    setComponentSize(w, w);
-                    postLayout();
+                    setWidth(w);
+                    setHeight(w);
+//                    setComponentSize(w, w);
+//                    postLayout();
+//                    requestFocus();
                 }
                 HiLog.info(hiLogLabel, "onComponentBoundToWindow w:%{public}d, h:%{public}d,thread:%{public}s", component.getWidth(), component.getHeight(), Thread.currentThread().getName());
             }

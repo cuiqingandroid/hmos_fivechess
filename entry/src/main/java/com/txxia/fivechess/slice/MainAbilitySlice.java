@@ -1,5 +1,6 @@
 package com.txxia.fivechess.slice;
 
+import com.txxia.fivechess.AIGameActivity;
 import com.txxia.fivechess.AboutAbility;
 import com.txxia.fivechess.ResourceTable;
 import ohos.aafwk.ability.AbilitySlice;
@@ -18,7 +19,7 @@ public class MainAbilitySlice extends AbilitySlice {
             Operation operation = new Intent.OperationBuilder()
                     .withDeviceId("")
                     .withBundleName(getBundleName())
-                    .withAbilityName("com.txxia.fivechess.SingleGameActivity")
+                    .withAbilityName(AIGameActivity.class.getName())
                     .build();
             secondIntent.setOperation(operation);
             startAbility(secondIntent);

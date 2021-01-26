@@ -24,6 +24,11 @@
       "moduleName": "entry",
       "moduleType": "entry"
     },
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
     "abilities": [
       {
         "skills": [
@@ -46,7 +51,7 @@
       },
       {
         "orientation": "unspecified",
-        "name": "com.txxia.fivechess.SingleGameActivity",
+        "name": "com.txxia.fivechess.AIGameActivity",
         "icon": "$media:icon",
         "description": "$string:mainability_description",
         "label": "$string:ai_title",

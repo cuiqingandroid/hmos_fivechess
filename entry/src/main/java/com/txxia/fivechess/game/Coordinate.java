@@ -1,8 +1,7 @@
 package com.txxia.fivechess.game;
 
 /**
- * 坐标类
- * @author cuiqing
+ * 棋盘坐标
  */
 public class Coordinate {
     public int x;
