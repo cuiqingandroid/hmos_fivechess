@@ -4,6 +4,9 @@
 
 如对局域网对战有兴趣，[可点此](https://github.com/cuiqingandroid/FiveChess)
 
+## 效果演示
+![效果图](https://img.txxia.com/picgohmos_fivechess.gif)
+
 ## 开发环境
 [开发官网](https://developer.harmonyos.com/cn/develop)
 
